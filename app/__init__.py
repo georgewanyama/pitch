@@ -30,7 +30,7 @@ def create_app(config_name):
     simple.init_app(app)
 
     # Creating the app configurations
-    app.config.from_object_(config_options[config_name])
+    app.config.from_object(config_options[config_name])
 
 
     # Initialising flask extensions
@@ -39,7 +39,7 @@ def create_app(config_name):
     login_manager.init_app(app)
 
     # Regestering the main blueprint
-    from main import main as main_blueprint
+    from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
 
     # Regestering the auth bluprint
